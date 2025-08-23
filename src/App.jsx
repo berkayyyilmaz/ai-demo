@@ -22,12 +22,11 @@ export default function App() {
     setError(null);
 
     try {
-      const res = await fetch("/api/openrouter", {
+      const res = await fetch("/api/gemini", {
         // Vercel rewrites to the function
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          model: "gpt-oss-20b",
           messages: [{ role: "user", content: trimmed }],
           temperature: 0.7,
         }),
@@ -53,7 +52,7 @@ export default function App() {
 
   return (
     <div className="app">
-      <h1>OpenRouter + GPT‑OSS‑20B Demo</h1>
+      <h1>Google Gemini AI Demo</h1>
 
       <div className="chat">
         {messages.map((m, i) => (
@@ -68,19 +67,19 @@ export default function App() {
         ))}
       </div>
 
-      {loading && <p className="loading">AI is thinking…</p>}
+      {loading && <p className="loading">AI düşünüyor…</p>}
       {error && <p className="error">{error}</p>}
 
       <textarea
         rows={4}
-        placeholder="Ask or type anything…"
+        placeholder="Herhangi bir şey sorun veya yazın…"
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
         disabled={loading}
       />
 
       <button onClick={sendPrompt} disabled={loading}>
-        {loading ? "Sending…" : "Send"}
+        {loading ? "Gönderiliyor…" : "Gönder"}
       </button>
     </div>
   );
