@@ -52,7 +52,7 @@ export default function App() {
 
   return (
     <div className="app">
-      <h1>Google Gemini AI Demo</h1>
+      <h1>Google Gemini AI Demo v1.0</h1>
 
       <div className="chat">
         {messages.map((m, i) => (
